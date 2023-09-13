@@ -31,18 +31,200 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Home'),
-          centerTitle: true,
-          backgroundColor: Colors.green,
+      appBar: AppBar(
+        title: Text('Home'),
+        centerTitle: true,
+        backgroundColor: Colors.green,
+      ),
+      // body: Scrollbar(
+      //   thickness: 20,
+      //   radius: Radius.circular(20),
+      //   child: ListView(
+      //     scrollDirection: Axis.vertical,
+      //     children: [
+      //       ListTile(
+      //         title: Text('Hello'),
+      //         subtitle: Text('My name is Hafiz'),
+      //         isThreeLine: true,
+      //         leading: Icon(Icons.done),
+      //         trailing: Icon(Icons.delete),
+      //         onTap: () {
+      //           MySnackBar('Success', context);
+      //         },
+      //       ),
+      //       Divider(
+      //         color: Colors.grey,
+      //         endIndent: 30,
+      //         indent: 30,
+      //       ),
+      //       ListTile(
+      //         title: Text('Hello'),
+      //         subtitle: Text('My name is Hafiz'),
+      //         isThreeLine: true,
+      //         leading: Icon(Icons.done),
+      //         trailing: Icon(Icons.delete),
+      //         onTap: () {
+      //           MySnackBar('Success', context);
+      //         },
+      //       ),
+      //       Divider(
+      //         color: Colors.grey,
+      //         endIndent: 30,
+      //         indent: 30,
+      //       ),
+      //       ListTile(
+      //         title: Text('Hello'),
+      //         subtitle: Text('My name is Hafiz'),
+      //         isThreeLine: true,
+      //         leading: Icon(Icons.done),
+      //         trailing: Icon(Icons.delete),
+      //         onTap: () {
+      //           MySnackBar('Success', context);
+      //         },
+      //       ),
+      //       Divider(
+      //         color: Colors.grey,
+      //         endIndent: 30,
+      //         indent: 30,
+      //       ),
+      //       ListTile(
+      //         title: Text('Hello'),
+      //         subtitle: Text('My name is Hafiz'),
+      //         isThreeLine: true,
+      //         leading: Icon(Icons.done),
+      //         trailing: Icon(Icons.delete),
+      //         onTap: () {
+      //           MySnackBar('Success', context);
+      //         },
+      //       ),
+      //       Divider(
+      //         color: Colors.grey,
+      //         endIndent: 30,
+      //         indent: 30,
+      //       ),
+      //       ListTile(
+      //         title: Text('Hello'),
+      //         subtitle: Text('My name is Hafiz'),
+      //         isThreeLine: true,
+      //         leading: Icon(Icons.done),
+      //         trailing: Icon(Icons.delete),
+      //         onTap: () {
+      //           MySnackBar('Success', context);
+      //         },
+      //       ),
+      //       Divider(
+      //         color: Colors.grey,
+      //         endIndent: 30,
+      //         indent: 30,
+      //       ),
+      //       ListTile(
+      //         title: Text('Hello'),
+      //         subtitle: Text('My name is Hafiz'),
+      //         isThreeLine: true,
+      //         leading: Icon(Icons.done),
+      //         trailing: Icon(Icons.delete),
+      //         onTap: () {
+      //           MySnackBar('Success', context);
+      //         },
+      //       ),
+      //       Divider(
+      //         color: Colors.grey,
+      //         endIndent: 30,
+      //         indent: 30,
+      //       ),
+      //       ListTile(
+      //         title: Text('Hello'),
+      //         subtitle: Text('My name is Hafiz'),
+      //         isThreeLine: true,
+      //         leading: Icon(Icons.done),
+      //         trailing: Icon(Icons.delete),
+      //         onTap: () {
+      //           MySnackBar('Success', context);
+      //         },
+      //       ),
+      //       Divider(
+      //         color: Colors.grey,
+      //         endIndent: 30,
+      //         indent: 30,
+      //       ),
+      //       ListTile(
+      //         title: Text('Hello'),
+      //         subtitle: Text('My name is Hafiz'),
+      //         isThreeLine: true,
+      //         leading: Icon(Icons.done),
+      //         trailing: Icon(Icons.delete),
+      //         onTap: () {
+      //           MySnackBar('Success', context);
+      //         },
+      //       ),
+      //       Divider(
+      //         color: Colors.grey,
+      //         endIndent: 30,
+      //         indent: 30,
+      //       ),
+      //       ListTile(
+      //         title: Text('Hello'),
+      //         subtitle: Text('My name is Hafiz'),
+      //         isThreeLine: true,
+      //         leading: Icon(Icons.done),
+      //         trailing: Icon(Icons.delete),
+      //         onTap: () {
+      //           MySnackBar('Success', context);
+      //         },
+      //       ),
+      //       Divider(
+      //         color: Colors.grey,
+      //         endIndent: 30,
+      //         indent: 30,
+      //       ),
+      //       ListTile(
+      //         title: Text('Hello'),
+      //         subtitle: Text('My name is Hafiz'),
+      //         isThreeLine: true,
+      //         leading: Icon(Icons.done),
+      //         trailing: Icon(Icons.delete),
+      //         onTap: () {
+      //           MySnackBar('Success', context);
+      //         },
+      //       ),
+      //     ],
+      //   ),
+      // ),
+      body: Scrollbar(
+        thickness: 20,
+        radius: Radius.circular(20),
+        child: GridView.count(
+          crossAxisCount: 3,
+          mainAxisSpacing: 10,
+          crossAxisSpacing: 10,
+          children: [
+            Icon(Icons.add),
+            Icon(Icons.add),
+            Icon(Icons.add),
+            Icon(Icons.add),
+            Icon(Icons.add),
+            Icon(Icons.add),
+            Icon(Icons.add),
+            Icon(Icons.add),
+            Icon(Icons.add),
+            Icon(Icons.add),
+            Icon(Icons.add),
+            Icon(Icons.add),
+            Icon(Icons.add),
+            Icon(Icons.add),
+            Icon(Icons.add),
+            Icon(Icons.add),
+            Icon(Icons.add),
+            Icon(Icons.add),
+            Icon(Icons.add),
+            Icon(Icons.add),
+            Icon(Icons.add),
+            Icon(Icons.add),
+            Icon(Icons.add),
+            Icon(Icons.add),
+          ],
         ),
-        body: Center(
-          child: GestureDetector(
-            onTap: () {
-              MySnackBar('Successful', context);
-            },
-            child: Text('Hello World'),
-          ),
-        ));
+      ),
+    );
   }
 }
