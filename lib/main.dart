@@ -4,111 +4,133 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+bool iconBool = true;
+IconData iconLight = Icons.wb_sunny;
+IconData iconDark = Icons.nights_stay;
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Photo Gallery',
-      home: MyHomePage(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Home page'),
+          actions: [
+            IconButton(
+              onPressed: () {
+                setState(() {
+                  iconBool = !iconBool;
+                });
+              },
+              icon: Icon(iconBool ? iconLight : iconDark),
+            )
+          ],
+        ),
+        body: Center(
+          child: ElevatedButton(
+            onPressed: () {},
+            child: Text('Home Page'),
+          ),
+        ),
+      ),
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
+      ),
+      darkTheme: ThemeData(
+        primarySwatch: Colors.red,
+        brightness: Brightness.dark,
+      ),
+      themeMode: iconBool ? ThemeMode.light : ThemeMode.dark,
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Photo Gallery'),
+        title: Text('Starting page'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              setState(() {
+                iconBool = !iconBool;
+              });
+            },
+            icon: Icon(iconBool ? iconLight : iconDark),
+          )
+        ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                'Welcome to the Photo Gallery App!',
-                style: TextStyle(fontSize: 24.0),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: TextField(
-                decoration: InputDecoration(
-                  labelText: 'Enter a message',
-                ),
-              ),
-            ),
-            GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 4.0,
-                mainAxisSpacing: 4.0,
-              ),
-              itemCount: 6,
-              shrinkWrap: true,
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text('Image ${index + 1} clicked!'),
-                      ),
-                    );
-                  },
-                  child: Card(
-                    child: Column(
-                      children: [
-                        Image.network(
-                          'https://via.placeholder.com/150',
-                          height: 100,
-                          width: 150,
-                          fit: BoxFit.cover,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text('Image ${index + 1}'),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              },
-            ),
-            ListTile(
-              leading: CircleAvatar(
-                backgroundImage: NetworkImage('https://via.placeholder.com/50'),
-              ),
-              title: Text('Sample Photo 1'),
-              subtitle: Text('Subtitle 1'),
-            ),
-            ListTile(
-              leading: CircleAvatar(
-                backgroundImage: NetworkImage('https://via.placeholder.com/50'),
-              ),
-              title: Text('Sample Photo 2'),
-              subtitle: Text('Subtitle 2'),
-            ),
-            ListTile(
-              leading: CircleAvatar(
-                backgroundImage: NetworkImage('https://via.placeholder.com/50'),
-              ),
-              title: Text('Sample Photo 3'),
-              subtitle: Text('Subtitle 3'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text('Photos Uploaded Successfully!'),
-                  ),
-                );
-              },
-              child: Text('Upload Photos'),
-            ),
-          ],
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => FirstRoute()));
+          },
+          child: Text('First Route'),
         ),
+      ),
+    );
+  }
+}
+
+class FirstRoute extends StatelessWidget {
+  const FirstRoute({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('First Route'),
+      ),
+      body: ListView.builder(
+        itemCount: 20,
+        itemBuilder: (BuildContext context, int index) {
+          return ListTile(
+            title: Text('$index'),
+            subtitle: Text('Content of $index'),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Details(
+                            productName: index.toString(),
+                          )));
+            },
+          );
+        },
+      ),
+    );
+  }
+}
+
+class Details extends StatelessWidget {
+  final String productName;
+  const Details({super.key, required this.productName});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Details'),
+      ),
+      body: Center(
+        child: Text(productName),
       ),
     );
   }
